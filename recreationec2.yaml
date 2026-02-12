@@ -1,0 +1,19 @@
+- name: recreation ec2
+  hosts: local
+  connection: local
+  vars:
+    S_ID: sg-03b4d5fe396aae7c3
+    AMI_ID: ami-0220d79f3f480ecf5
+
+  tasks:
+  - name: ec2recreation
+    amazon.aws.ec2_instance:
+      type: "t3.micro"
+      security_group: "{{ S_ID }}"
+      image_id: "{{ AMI_ID }}"
+      name: "{{ item }}"
+    loop:
+    - mangoDB
+    - cart
+    
+     
