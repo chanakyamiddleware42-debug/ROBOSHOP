@@ -1,5 +1,5 @@
 - name: recreation ec2
-  hosts: local
+  hosts: localhost
   connection: local
   vars:
     S_ID: sg-03b4d5fe396aae7c3
