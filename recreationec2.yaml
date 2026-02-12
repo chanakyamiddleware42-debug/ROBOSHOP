@@ -25,9 +25,9 @@
     loop: "{{ instances }}"
     register: output
 
-   - name: print
-     debug:
-       msg: "{{ output }}"
+  - name: print
+    debug:
+      msg: "{{ output }}"
      
     
     
