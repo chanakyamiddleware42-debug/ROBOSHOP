@@ -15,7 +15,7 @@
       instance_type: "t3.micro"
       security_group: "{{ S_ID }}"
       image_id: "{{ AMI_ID }}"
-      name: "{{ item }}.{ ENV }}"
+      name: "{{ item }}.{{ ENV }}"
     loop:
     - mangoDB
     - cart
