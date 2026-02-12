@@ -9,7 +9,7 @@
   tasks:
   - name: ec2recreation
     amazon.aws.ec2_instance:
-      type: "t3.micro"
+      instance_type: "t3.micro"
       security_group: "{{ S_ID }}"
       image_id: "{{ AMI_ID }}"
       name: "{{ item }}"
