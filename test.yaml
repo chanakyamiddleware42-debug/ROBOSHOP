@@ -1,6 +1,6 @@
 - name: install
   hosts: localhost
-  connection: localhost
+  connection: local
   tasks:
   - name: install
     dnf: 
