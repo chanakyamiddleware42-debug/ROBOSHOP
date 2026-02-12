@@ -9,7 +9,7 @@
     instances:
     - mangoDB    
     - cart
-    domain: chanidevops.online
+    domain_name: chanidevops.online
 
   tasks:
   - name: ec2recreation
@@ -32,8 +32,8 @@
   - name: route 53    
     amazon.aws.route53:
       state: present
-      zone: "{{ domin }}"
-      record: "{{ item.item }} -{{env}}.{{domain}}"
+      zone: "{{ domain_name }}"
+      record: "{{ item.item }} -{{ env }}.{{ domain_name }}"
       type: A
       ttl: 1
       value: "{{ item.instances[0]. private_ip_address}}"
