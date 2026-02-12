@@ -7,3 +7,8 @@
     dnf: 
       name: httpd
       state: present
+    register: output
+  - name: prinf
+    debug:
+      msg: "{{ installation is completed}}"
+    when: output.rc == 0  
