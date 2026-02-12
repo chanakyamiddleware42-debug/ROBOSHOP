@@ -17,12 +17,18 @@
       security_group: "{{ S_ID }}"
       image_id: "{{ AMI_ID }}"
       name: "{{ item }}-{{ env }}"
-    tags:
-      Project: roboshop
-      Domain: "{{ item }}"
-      Environment: "{{ env }}"
-      Name: "{{ item }}-{{ env }}"
+      tags:
+        Project: roboshop
+        Domain: "{{ item }}"
+        Environment: "{{ env }}"
+        Name: "{{ item }}-{{ env }}"
     loop: "{{ instances }}"
+    register: output
+
+   - name: print
+     debug:
+       msg: "{{ output }}"
+     
     
     
      
