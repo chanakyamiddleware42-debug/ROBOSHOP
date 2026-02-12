@@ -10,6 +10,8 @@
     - mangoDB    
     - cart
     domain_name: chanidevops.online
+   
+
 
   tasks:
   - name: ec2recreation
@@ -20,7 +22,7 @@
       name: "{{ item }}-{{ env }}"
       tags:
         Project: roboshop
-        Domain: "{{ item }}"
+        Section: "{{ item }}"
         Environment: "{{ env }}"
         Name: "{{ item }}-{{ env }}"
     loop: "{{ instances }}"
