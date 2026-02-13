@@ -26,6 +26,7 @@
         Name: "{{ item }}-{{ env }}"
     loop: "{{ instances }}"
     register: output
+    when: action == "create"
 
   - name: print
     debug:
@@ -38,5 +39,25 @@
       type: A
       ttl: 1
       value: "{{ item.instances[0]. private_ip_address }}"
-      loop: "{{ ec2_output.results }}"
+      loop: "{{ output.results }}"
+      when: action == "create"
+
+
+
+    #   - name: create r53 records
+    # amazon.aws.route53:
+    #   state: present
+    #   zone: "{{ domain_name }}"
+    #   record: "{{ item.item }}-{{ env }}.{{ domain_name }}" # mongodb-dev.daws88s.online, frontend-dev.daws88s.online
+    #   type: A
+    #   ttl: 1
+    #   value: "{{ item.instances[0].private_ip_address }}"
+    #   wait: false
+    #   overwrite: true
+    # loop: "{{ ec2_output.results }}" # list
+    # when: action == "create
+
+
+
+      
      
