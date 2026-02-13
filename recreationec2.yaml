@@ -5,6 +5,7 @@
     S_ID: sg-03b4d5fe396aae7c3
     AMI_ID: ami-0220d79f3f480ecf5
     env: dev
+    action: create
     instances:
     - mangoDB    
     - cart
