@@ -29,8 +29,9 @@
     when: action == "create"
 
   - name: print
-    debug:
+    ansible.builtin.debug: 
       msg: "{{ output }}"
+
   - name: route 53    
     amazon.aws.route53:
       state: present
